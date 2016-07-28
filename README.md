@@ -1,5 +1,13 @@
 # lightbox-vanilla
 
+## Getting Started
+
+```
+git clone https://github.com/dmamaril/lightbox-vanilla.git
+python -m SimpleHTTPServer 8080
+open http://localhost:8080
+```
+
 ## TODO:
 	* register for API keys
 	* apply API keys to requests
