@@ -3,17 +3,26 @@ html {
 }
 
 body {
+
     font-family: Helvetica;
     font-weight: 100;
+
     min-height: 100%;
     background-color: #E1E2E4;
+
+    margin: 0;
     position: relative;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
 }
 
 .header {
 
     width: 100%;
     height: 75px;
+    z-index: 1;
 
     top: 0;
     left: 0;
@@ -73,4 +82,24 @@ input:focus {
 
     position: absolute;
     top: 33%;
+}
+
+.thumbnail-image {
+    float: left;
+    width: 24%;
+    margin: 5px;
+}
+
+.thumbnail-image img {
+    width: 100%;
+    height: 150px;
+}
+
+#gallery-container {
+    position: relative;
+    top: 125px;
+    width: 90%;
+    margin: 0 5%;
+    height: 90%;
+    overflow-y: scroll;
 }

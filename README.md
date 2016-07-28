@@ -21,3 +21,4 @@ open http://localhost:8080
 				** ensure left and right arrow keys are listening!
 		** ensure responsiveness
 	* TESTING!!!!!!
+	* ERROR HANDLERS FOR FAIL IMG LOOKUP 
