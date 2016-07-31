@@ -96,10 +96,32 @@ input:focus {
 }
 
 #gallery-container {
-    position: relative;
-    top: 125px;
+
+    height: 90%;
     width: 90%;
     margin: 0 5%;
-    height: 90%;
+
+    margin-top: 125px;
     overflow-y: scroll;
+}
+
+#load-more {
+
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    cursor: pointer;
+    line-height: 100px;
+    text-align: center;
+    color: rgb(120, 120, 120);
+    visibility: hidden;
+
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
 }
