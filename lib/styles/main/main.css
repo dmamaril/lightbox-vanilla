@@ -88,6 +88,8 @@ input:focus {
     float: left;
     width: 24%;
     margin: 5px;
+
+    cursor: pointer;
 }
 
 .thumbnail-image img {
@@ -114,7 +116,7 @@ input:focus {
     line-height: 100px;
     text-align: center;
     color: rgb(120, 120, 120);
-    visibility: hidden;
+    display: none;
 
     border: 1px solid rgb(255, 255, 255);
     border-radius: 50%;
@@ -124,4 +126,20 @@ input:focus {
     -webkit-user-select: none; /* Chrome/Safari */        
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+ */
+}
+
+#modal {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    top: 75px;
+    z-index: 1;
+
+    display: none;
+}
+
+#modal img {
+    max-width: 90%;
+    max-height: 100%;
 }

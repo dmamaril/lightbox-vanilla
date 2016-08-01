@@ -4,14 +4,17 @@
         <span id="logo-dark"> box </span>
     </div>
 
-    <input type="text" placeholder="search" class="centered" id="search_box" onkeypress="lb.events.search()">
+    <input type="text" placeholder="search" class="centered" id="search_box" onkeypress="lb.controller.search()">
     </div>
 </div>
 
-
-<div id="gallery-container" onclick="lb.events.openModal()">
+<div id="gallery-container" onclick="lb.controller.openModal()">
 </div>
 
-<div id="load-btn" unselectable="on" onclick="lb.events.load()">
+<div id="load-btn" unselectable="on" onclick="lb.controller.load()">
     <a> Load more </a>
+</div>
+
+<div id="modal">
+    <img id="lb-image" class="centered">
 </div>
