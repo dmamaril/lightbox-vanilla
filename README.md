@@ -34,3 +34,4 @@ open http://localhost:8080
 	* replacing thumbnails on new query
 	* caching views
 	* loading indicators for slow parent src queries
+	* bug on searching from main page; >> wait for route change to complete;
