@@ -34,4 +34,6 @@ open http://localhost:8080
 	* replacing thumbnails on new query [done]
 	* caching views
 	* loading indicators for slow parent src queries
-	* bug on searching from main page; >> wait for route change to complete;
+	* bug on searching from main page; >> wait for route change to complete; [fix]
+
+	* implement throttle for load btn instead? or just update view with placeholders? unsure;
