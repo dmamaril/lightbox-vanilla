@@ -39,3 +39,5 @@ open http://localhost:8080
 	* implement throttle for load btn instead? or just update view with placeholders? unsure;
 	* state gets all wonky when routing back to / from /#gallery
 	* automatically load more when looking at next pictures at about 80% of image index
+	* on enlarge, images remain small
+	* add padding to top and bottom of modal-image
