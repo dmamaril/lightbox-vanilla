@@ -47,6 +47,14 @@ body {
     right: 8px;
 }
 
+#logo-light-small {
+    display:none;
+}
+
+#logo-dark-small {
+    display:none;
+}
+
 input {
 
     width: 40%;
@@ -86,15 +94,16 @@ input:focus {
 
 .thumbnail-image {
     float: left;
-    width: 24%;
-    margin: 5px;
+    width: 20%;
+    padding: 5px;
+    box-sizing: border-box;
 
     cursor: pointer;
 }
 
 .thumbnail-image img {
     width: 100%;
-    height: 150px;
+    height: 200px;
 }
 
 #gallery-container {
@@ -184,4 +193,73 @@ input:focus {
 
 .float-right {
     float: right;
+}
+
+@media (max-width: 1400px) {
+    .thumbnail-image {
+        width: 25%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .thumbnail-image {
+        width: 33.333%;
+    }
+}
+
+@media (max-width: 700px) {
+    .thumbnail-image {
+        width: 50%;
+    }
+
+    #logo-light {
+        display: none;
+    }
+
+    #logo-dark {
+        display: none;
+    }
+
+    #logo-light-small {
+        color: rgb(255, 255, 255);
+        display: inline;
+    }
+
+    #logo-dark-small {
+        display: inline;
+        color: rgb(120, 120, 120);
+        position: relative;
+        right: 8px;
+    }
+}
+
+@media (max-width: 500px) {
+    .thumbnail-image {
+        width: 100%;
+        padding: 5px 25px;
+    }
+
+    #logo-light {
+        display: none;
+    }
+
+    #logo-dark {
+        display: none;
+    }
+
+    #logo-light-small {
+        color: rgb(255, 255, 255);
+        display: inline;
+    }
+
+    #logo-dark-small {
+        display: inline;
+        color: rgb(120, 120, 120);
+        position: relative;
+        right: 8px;
+    }
+
+    #gallery-container {
+        margin-top: 115px;
+    }
 }
