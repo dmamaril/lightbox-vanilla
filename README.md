@@ -4,6 +4,7 @@
 
 ```
 git clone https://github.com/dmamaril/lightbox-vanilla.git
+cd lightbox-vanilla
 python -m SimpleHTTPServer 8080
 open http://localhost:8080
 ```
@@ -28,3 +29,7 @@ open http://localhost:8080
 		>> need to fit image properly
 			>> tll img src http://blogs.djc.com/blogs/SeattleScape/wp-content/uploads/2012/08/chinatwo.jpg
 			>> wide& tall https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQnrml_8xtiS939Jj4TVJrymzqOMCAbj8_B6SMuUvAHDnF3xh5H
+
+	* caching results & next batch
+	* replacing thumbnails on new query
+	* caching views

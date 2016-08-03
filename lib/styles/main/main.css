@@ -129,11 +129,10 @@ input:focus {
 }
 
 #modal {
-    height: 100%;
+    height: calc(100% - 75px);
     width: 100%;
-    background-color: rgb(48, 48, 49);
     position: fixed;
-    top: 0px;
+    top: 75px;
     z-index: 1;
 
     display: none;
@@ -142,6 +141,13 @@ input:focus {
 #modal img {
     max-width: 90%;
     max-height: 100%;
+}
+
+#modal-layer {
+    background-color: rgb(48, 48, 49);
+    opacity: 0.8;
+    height: 100%;
+    width: 100%;
 }
 
 .modal-btn {
@@ -155,6 +161,13 @@ input:focus {
     right: 25px;
     top: 25px;
     font-size: 30px;
+}
+
+#modal-navs {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
 }
 
 .modal-nav {
