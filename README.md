@@ -33,3 +33,4 @@ open http://localhost:8080
 	* caching results & next batch
 	* replacing thumbnails on new query
 	* caching views
+	* loading indicators for slow parent src queries
