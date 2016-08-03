@@ -37,3 +37,5 @@ open http://localhost:8080
 	* bug on searching from main page; >> wait for route change to complete; [fix]
 
 	* implement throttle for load btn instead? or just update view with placeholders? unsure;
+	* state gets all wonky when routing back to / from /#gallery
+	* automatically load more when looking at next pictures at about 80% of image index
