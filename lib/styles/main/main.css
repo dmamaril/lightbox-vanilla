@@ -27,7 +27,7 @@ body {
     top: 0;
     left: 0;
     position: fixed;
-    background-color: rgb(48, 48, 49);
+    background-color: black;
 }
 
 #logo {
@@ -131,9 +131,9 @@ input:focus {
 #modal {
     height: 100%;
     width: 100%;
-    background-color: black;
+    background-color: rgb(48, 48, 49);
     position: fixed;
-    top: 75px;
+    top: 0px;
     z-index: 1;
 
     display: none;
@@ -142,4 +142,33 @@ input:focus {
 #modal img {
     max-width: 90%;
     max-height: 100%;
+}
+
+.modal-btn {
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#close-modal {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    font-size: 30px;
+}
+
+.modal-nav {
+    font-size: 60px;
+    margin: 0 25px;
+
+    position: relative;
+    top: 50%;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
 }
