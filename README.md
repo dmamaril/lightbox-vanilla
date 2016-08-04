@@ -40,11 +40,13 @@ http://stackoverflow.com/a/28139063 re inline listeners
 	* bug on searching from main page; >> wait for route change to complete; [fix]
 
 	* implement throttle for load btn instead? or just update view with placeholders? unsure;
-	* state gets all wonky when routing back to / from /#gallery
+	* state gets all wonky when routing back to / from /#gallery [done]
 	* automatically load more when looking at next pictures at about 80% of image index [done]
-	* on enlarge, images remain small
-	* add padding to top and bottom of modal-image
-	* error handling views (403 rate limit, timeout, 401s etc)
-	* body has excess height
+	* on enlarge, images remain small [done]
+	* add padding to top and bottom of modal-image [done]
+	* error handling views (403 rate limit, timeout, 401s etc) [done]
+	* body has excess height [done]
 	* GAPI only permits 100 images; [done]
 	* remove sync ability for client; [done]
+	* on previous image safeaguard to ensure element exists [done]
+	* footer indicator when max images has been reached
