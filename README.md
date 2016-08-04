@@ -41,3 +41,5 @@ open http://localhost:8080
 	* automatically load more when looking at next pictures at about 80% of image index
 	* on enlarge, images remain small
 	* add padding to top and bottom of modal-image
+	* error handling views (403 rate limit, timeout, 401s etc)
+	* body has excess height
