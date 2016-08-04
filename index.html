@@ -5,7 +5,7 @@
     <title>Lightbox Vanilla</title>
     <link rel="stylesheet" type="text/css" href="lib/styles/main/main.css">
 </head>
-<body onkeydown="lb.controller.navigateLightBox()">
+<body onkeydown="lb.controller.navigateLightBox.apply(lb.controller, arguments)">
 
     <!-- LIBS -->
     <script type="text/javascript" src="lib/utils/utils.js"></script>

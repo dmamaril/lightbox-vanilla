@@ -6,14 +6,20 @@
         <span id="logo-dark-small"> b </span>
     </div>
 
-    <input type="text" placeholder="search" class="centered" id="search_box" onkeypress="lb.controller.search()">
+    <input
+        type="text"
+        id="search_box" 
+        class="centered"
+        placeholder="search"
+        onkeypress="lb.controller.search.apply(lb.controller, arguments)">
+
     </div>
 </div>
 
-<div id="gallery-container" onclick="lb.controller.openModal()">
+<div id="gallery-container" onclick="lb.controller.openModal.apply(lb.controller, arguments)">
 </div>
 
-<div id="load-btn" unselectable="on" onclick="lb.controller.load()">
+<div id="load-btn" unselectable="on" onclick="lb.controller.load.apply(lb.controller, arguments)">
     <a> Load more </a>
 </div>
 
@@ -24,7 +30,7 @@
     <img id="lb-image" class="centered">
 
     <div id="modal-navs">
-        <div id="close-modal" class="modal-btn" onclick="lb.controller.closeModal()">
+        <div id="close-modal" class="modal-btn" onclick="lb.controller.closeModal.apply(lb.controller, arguments)">
             X
         </div>
 
@@ -47,7 +53,7 @@
     <div id="error-message" class="centered">
         <div id="error-message-title">Oops.</div>
         <div id="error-message-subtitle"></div>
-        <div id="go-back" onclick="lb.controller.hideError()"> Go Back </div>
+        <div id="go-back" onclick="lb.controller.hideError.apply(lb.controller, arguments)"> Go Back </div>
     </div>
 
 </div>

@@ -9,5 +9,9 @@
 
 <div id="call-to-action">
     <div> Let's explore! </div>
-    <input type="text" placeholder="search" id="search_box" onkeypress="lb.controller.search()">
+    <input 
+        type="text"
+        id="search_box"
+        placeholder="search"
+        onkeypress="lb.controller.search.apply(lb.controller, arguments)">
 </div>

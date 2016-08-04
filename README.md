@@ -9,6 +9,9 @@ python -m SimpleHTTPServer 8080
 open http://localhost:8080
 ```
 
+## Notes
+http://stackoverflow.com/a/28139063 re inline listeners
+
 ## TODO:
 	* register for API keys [done]
 	* apply API keys to requests [done]
