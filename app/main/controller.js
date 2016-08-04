@@ -307,7 +307,7 @@
                 el.setAttribute('lb-src'    , parent_src || thumb_src); // deafult to either or;
                 el.setAttribute('src'       , thumb_src  || parent_src); // deafult to either or;
                 el.setAttribute('id'        , 'lb-index-' + image_index);
-                el.setAttribute('onerror'   , 'this.src="/lib/styles/no_image.jpg"'); // find cooler option
+                el.setAttribute('onerror'   , 'this.src="app/styles/no_image.jpg"'); // find cooler option
 
                 clone = wrapper.cloneNode();
 
