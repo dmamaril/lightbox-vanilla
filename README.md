@@ -46,5 +46,5 @@ http://stackoverflow.com/a/28139063 re inline listeners
 	* add padding to top and bottom of modal-image
 	* error handling views (403 rate limit, timeout, 401s etc)
 	* body has excess height
-	* GAPI only permits 100 images;
-	* remove sync ability for client;
+	* GAPI only permits 100 images; [done]
+	* remove sync ability for client; [done]
