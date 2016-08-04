@@ -43,3 +43,5 @@ open http://localhost:8080
 	* add padding to top and bottom of modal-image
 	* error handling views (403 rate limit, timeout, 401s etc)
 	* body has excess height
+	* GAPI only permits 100 images;
+	* remove sync ability for client;
