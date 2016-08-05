@@ -78,24 +78,20 @@
      */
     controller.openModal = function openModal(event) {
 
-        var src, el, modal, img;
+        var src, el, modal, img, index;
 
         el      = event.target;
         src     = el.getAttribute('lb-src');
+        index   = el.getAttribute('lb-index');
+
         modal   = _.getElement('#modal');
         img     = _.getElement('#lb-image');
-
-        // set display of modal true;
-        // can expect src to exist due to prefiltering on getting data;
-        if (!_.isString(src)) {
-            return;
-        }
 
         img.setAttribute('src', src);
         modal.setAttribute('style', 'display:block');
 
         state.modal_visible = true;
-        state.modal_index   = Number(el.getAttribute('lb-index'));
+        state.modal_index   = Number(index);
     };
 
     /**
@@ -107,7 +103,7 @@
      */
     controller.closeModal = function closeModal() {
 
-        var modal = _.getElement('#modal');
+        var modal           = _.getElement('#modal');
         state.modal_visible = false;
         
         modal.setAttribute('style', 'display:none');
@@ -142,6 +138,7 @@
     };
 
     controller.loadPrevImg = _.partial(loadImg, 'previous');
+
     controller.loadNextImg = _.partial(loadImg, 'next');
 
     /**
@@ -159,6 +156,8 @@
             error_el.setAttribute('style', 'display:none');
         }
     };
+
+
 
     /**
      * [loadImg description]
@@ -188,23 +187,25 @@
 
         // automatically load more @ 80% of existing thumbnails;
         // spamming right should be taken care of by debounce;
-        if (view_percentage > 0.8 && direction === 'next') {
+        if (view_percentage > 0.75 && direction === 'next' && !state.rate_limited) {
             controller.load();
         }
 
         state.modal_index = next_index;
         modal_image.setAttribute('src', image_src);
     };
+
     /**
      * [resetState description]
      * @return {[type]} [description]
      */
     function resetState() {
-        state.load_visible    = false;
-        state.modal_visible   = false;
-        state.previous_query  = null;
-        state.image_batch     = 0;
-        state.num_images      = 0;
+        state.rate_limited      = false;
+        state.load_visible      = false;
+        state.modal_visible     = false;
+        state.previous_query    = null;
+        state.image_batch       = 0;
+        state.num_images        = 0;
     }
 
     /**
@@ -262,6 +263,7 @@
 
         // update state;
         state.image_batch   = image_batch;
+        state.rate_limited  = new_query ? false : true;
         state.num_images    = new_query ? 0 : state.num_images;
 
         wrapper.setAttribute('class', 'thumbnail-image');
@@ -318,13 +320,13 @@
                 state.num_images++;
             });
 
-            // display if < 100 images
-            if (state.load_visible === false && state.num_images < 100) {
+            // display if hidden && safe to load more;
+            if (!state.load_visible && !state.rate_limited) {
 
                 toggleLoadButtonDisplay('block');
 
-            // kill if >= 100 images to prevent more API calls that will result in 400s
-            } else if (state.load_visible === true && state.image_batch === 1) {
+            // refuse to load more if already rate limited;
+            } else if (state.load_visible && state.rate_limited) {
                 toggleLoadButtonDisplay('none');
             }
         }
@@ -345,7 +347,6 @@
         }
     }
 
-
     /**
      * [showError description]
      *
@@ -365,19 +366,16 @@
 
         if (status_code === 403) {
 
-            msg_subtitle.innerHTML = 'You cannot do this action.';
+            msg_subtitle.innerHTML = 'Rate limited...';
 
-        } else if (status_code === 404) {
+        } else if (status_code === 400) {
 
-            msg_subtitle.innerHTML = 'This page cannot be found.';
-
-        } else if (status_code === 401) {
-
-            msg_subtitle.innerHTML = 'You are not logged in.';
+            state.rate_limited = true;
+            msg_subtitle.innerHTML = 'We\'re all out of goodies';
 
         } else {
 
-            msg_subtitle.innerHTML = 'An error occurred.';
+            msg_subtitle.innerHTML = 'Something\'s gone horribly wrong.';
         }
     }
 

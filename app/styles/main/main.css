@@ -237,7 +237,7 @@ input:focus {
 #error-message-subtitle {
     position: absolute;
     top: 57%;
-    font-size: 22px;
+    font-size: 18px;
     text-align: center;
     width: 100%;
 }
@@ -247,6 +247,7 @@ input:focus {
     width: 100%;
     text-align: center;
     margin-top: 320px;
+    cursor: pointer;
 }
 
 
