@@ -112,10 +112,8 @@ input:focus {
 }
 
 #gallery-container {
-
     margin: 0 5%;
-
-    padding-top: 125px;
+    padding-top: 100px;
     overflow-y: scroll;
 }
 

@@ -342,28 +342,15 @@
             // display if hidden && safe to load more;
             if (!state.load_visible && !state.rate_limited) {
 
-                toggleLoadButtonDisplay('block');
+                state.load_visible = true;
+                _.setElementStyle('#load-btn', 'display: block');
 
             // refuse to load more if already rate limited;
             } else if (state.load_visible && state.rate_limited) {
 
-                toggleLoadButtonDisplay('none');
+                state.load_visible = false;
+                _.setElementStyle('#load-btn', 'display: none');
             }
-        }
-
-        /**
-         * [toggleLoadButtonDisplay description]
-         *
-         * helper fn to toggle load btn display based on values assed in
-         * 
-         * @return {[type]} [description]
-         */
-        function toggleLoadButtonDisplay(val) {
-
-            state.load_visible  = val === 'block' ? true : false;
-            var load_btn        = _.getElement('#load-btn');
-
-            load_btn.setAttribute('style', 'display:' + val);
         }
     }
 
@@ -412,37 +399,25 @@
         if (index === 0) {
 
             state.prev_nav_visible = false;
-            toggleNavDisplay('#modal-nav-prev', 'none');
+            _.setElementStyle('#modal-nav-prev', 'visibility: hidden');
         }
 
         else if (index === state.num_images - 1) {
 
             state.next_nav_visible = false;
-            toggleNavDisplay('#modal-nav-next', 'none');
+            _.setElementStyle('#modal-nav-next', 'visibility: hidden');
         }
 
         else if (!state.prev_nav_visible) {
 
             state.prev_nav_visible = true;
-            toggleNavDisplay('#modal-nav-prev', 'block');
+            _.setElementStyle('#modal-nav-prev', 'visibility:visible');
         }
 
         else if (!state.next_nav_visible) {
 
             state.next_nav_visible = true;
-            toggleNavDisplay('#modal-nav-next', 'block');
-        }
-
-        /**
-         * [toggleNavDisplay description]
-         * @param  {[type]} selector [description]
-         * @param  {[type]} value    [description]
-         * @return {[type]}          [description]
-         */
-        function toggleNavDisplay(selector, value) {
-
-            var el = _.getElement(selector);
-            el.setAttribute('style', 'display: ' + value);
+            _.setElementStyle('#modal-nav-next', 'visibility:visible');
         }
     }
 
