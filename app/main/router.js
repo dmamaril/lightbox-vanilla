@@ -1,3 +1,10 @@
+/**
+ * router
+ *
+ * >> allows users to configure routes on their own
+ * >> fetches templates based on templateUrl using client.js
+ * >> supports callback on forced router.go to be invoked on view update
+ */
 (function () {
 
     var router = {};
@@ -102,17 +109,15 @@
         var hash = getLocPath();
 
         if (routes.hasOwnProperty(hash)) {
-
             updateViews(routes[hash].templateUrl);
+        }
 
-        // handle wild cards to re-route to main page;
-        } else if (routes.hasOwnProperty('/')) {
-
+        else if (routes.hasOwnProperty('/')) {
             updateViews(routes['/'].templateUrl);
+        }
 
-        } else {
-
-            console.error('No route configuration found for ' + hash);
+        else {
+            throw new Error('No route configuration found for ' + hash);
         }
     }
 
