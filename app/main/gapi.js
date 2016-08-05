@@ -35,6 +35,40 @@
     };
 
     /**
+     * [toQueryString description]
+     *
+     * >> handles special character searches;
+     * 
+     * @param  {String} query user defined query for gapi.getData later;
+     * @return {String}       encoded & padded with '+' to separate terms
+     */
+    gapi.toQueryString = function toQueryString(query) {
+
+        if (!_.isString(query)) {
+            return '';
+        }
+
+        query = query.split(' ');
+        query = _.map(query, encodeURIComponent);
+
+        return query.join('+');
+    };
+
+    /**
+     * [decodeQueryString description]
+     * @param  {String} encoded_str Encoded string by gapi.toQueryString
+     * @return {String}             decoded & replaced '+' with spaces;
+     */
+    gapi.decodeQueryString = function decodeQueryString(encoded_str) {
+
+        if (!_.isString(encoded_str)) {
+            return '';
+        }
+
+        return decodeURIComponent(encoded_str).split('+').join(' ');
+    };
+
+    /**
      * [getData description]
      * 
      * where batch_num is incremented by "Load more" btn clicks
