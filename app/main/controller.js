@@ -49,10 +49,12 @@
      */
     controller.search = function search(event) {
 
+        var search_box, query;
+
         if (_.keyPressed(event) === 'enter') {
 
-            // input.value === '' if empty;
-            var query = search_box.value.split(' ').join('+');
+            search_box  = _.getElement('#search_box');
+            query       = window.lb.gapi.toQueryString(search_box.value);
 
             if (query === '') {
                 return; // update style maybe?
@@ -247,7 +249,7 @@
         // update view;
         if (window.location.hash !== '#gallery') {
 
-            window.lb.router.go('#gallery', _.partial(fetchImages, query, image_batch));
+            window.lb.router.go('#gallery', _.partial(setSearchValueAndFetchImages, query, image_batch));
 
         } else {
 
@@ -421,4 +423,19 @@
         }
     }
 
+    /**
+     * [setSearchValueAndFetchImages description]
+     *
+     * >> used to retain query string from main page when entering gallery view;
+     * 
+     * @param {[type]} query       [description]
+     * @param {[type]} image_batch [description]
+     */
+    function setSearchValueAndFetchImages(query, image_batch) {
+
+        var search_box   = _.getElement('#search_box');
+        search_box.value = window.lb.gapi.decodeQueryString(query);
+
+        fetchImages(query, image_batch);
+    }
 })();
