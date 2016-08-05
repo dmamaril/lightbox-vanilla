@@ -224,13 +224,13 @@ input:focus {
     background: rgb(48, 48, 49);
     border-radius: 50%;
     color: white;
+    text-align: center;
 }
 
 #error-message-title {
     position: absolute;
     top: 33%;
     font-size: 50px;
-    text-align: center;
     width: 100%;
 }
 
@@ -238,14 +238,12 @@ input:focus {
     position: absolute;
     top: 57%;
     font-size: 18px;
-    text-align: center;
     width: 100%;
 }
 
 #go-back {
     position: absolute;
     width: 100%;
-    text-align: center;
     margin-top: 320px;
     cursor: pointer;
 }

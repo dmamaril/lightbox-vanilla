@@ -11,15 +11,15 @@
         id="search_box" 
         class="centered"
         placeholder="search"
-        onkeypress="lb.controller.search.apply(lb.controller, arguments)">
+        onkeypress="lb.controller.search(arguments[0])">
 
     </div>
 </div>
 
-<div id="gallery-container" onclick="lb.controller.openModal.apply(lb.controller, arguments)">
+<div id="gallery-container" onclick="lb.controller.openModal(arguments[0])">
 </div>
 
-<div id="load-btn" unselectable="on" onclick="lb.controller.load.apply(lb.controller, arguments)">
+<div id="load-btn" unselectable="on" onclick="lb.controller.load(arguments[0])">
     <a> Load more </a>
 </div>
 
@@ -27,19 +27,19 @@
 
     <div id="modal-layer"></div>
 
-    <img id="lb-image" class="centered" onerror="this.src='lib/styles/no_image.jpg'">
+    <img id="lb-image" class="centered" onerror="this.src='app/styles/no_image.jpg'">
 
     <div id="modal-navs">
-        <div id="close-modal" class="modal-btn" onclick="lb.controller.closeModal.apply(lb.controller, arguments)">
+        <div id="close-modal" class="modal-btn" onclick="lb.controller.closeModal(arguments[0])">
             X
         </div>
 
         <!-- NEED TO STRETCH TO LEFT HALF & RIGHT HALF -->
-        <div class="float-left modal-nav modal-btn" onclick="lb.controller.loadPrevImg.apply(lb.controller, arguments)">
+        <div class="float-left modal-nav modal-btn" onclick="lb.controller.loadPrevImg(arguments[0])">
             <
         </div>
 
-        <div class="float-right modal-nav modal-btn" onclick="lb.controller.loadNextImg.apply(lb.controller, arguments)">
+        <div class="float-right modal-nav modal-btn" onclick="lb.controller.loadNextImg(arguments[0])">
             >
         </div>
     </div>
@@ -53,7 +53,7 @@
     <div id="error-message" class="centered">
         <div id="error-message-title">Oops.</div>
         <div id="error-message-subtitle"></div>
-        <div id="go-back" onclick="lb.controller.hideError.apply(lb.controller, arguments)"> Go Back </div>
+        <div id="go-back" onclick="lb.controller.hideError(arguments[0])"> Go Back </div>
     </div>
 
 </div>
