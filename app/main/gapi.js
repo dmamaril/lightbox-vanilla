@@ -1,13 +1,37 @@
+/**
+ * gapi
+ *
+ * >> configured 
+ * >> built on top of client.js to hit Google's custom search API;
+ * >> due to gapi constraint of returning 10 items / query,
+ *   >> use asyncParallel to query for 50 items per search / load
+ */
 (function () {
 
-    var gapi, HOST_URI, API_KEY, BASE_URI;
+    var gapi = {
+        base_uri: 'https://www.googleapis.com/customsearch/v1?imgType=photo&fields=items'
+    };
 
-    HOST_URI    = 'https://www.googleapis.com/customsearch/v1?imgType=photo&fields=items&';
-    API_KEY     = '';
+    window.lb = _.set(window.lb, 'gapi', gapi);
 
-    gapi = {
-        cache   : {},
-        base_uri: HOST_URI + API_KEY
+    /**
+     * [init description]
+     *
+     * Retrieve gapi auth from config.json in root and set base_uri for gapi requests;
+     * 
+     * @return {[type]} [description]
+     */
+    gapi.init = function gapiInit() {
+
+        client.get('config.json', function (err, config) {
+
+            if (!_.isNull(err) || _.isUndefined(config.api_key) || _.isUndefined(config.cx)) {
+                throw new Error('Failed to initialize gapi. Please consult README for proper app configuration.');
+            }
+
+            gapi.base_uri += + '&key=' + config.api_key + '&cx=' + config.cx;
+        });
+
     };
 
     /**
@@ -1091,5 +1115,4 @@
         });
     };
 
-    window.lb = _.set(window.lb, 'gapi', gapi);
 })();

@@ -131,10 +131,10 @@
      */
     function updateViews(templateUrl) {
 
-        client.get(templateUrl, function onGetTemplate(err, res, body) {
+        client.get(templateUrl, function onGetTemplate(err, html_string) {
 
-            if (_.isString(body)) {
-                document.body.innerHTML = body;                
+            if (_.isString(html_string)) {
+                document.body.innerHTML = html_string;                
             }
 
             if (_.isFunction(router.onRouteChange)) {
