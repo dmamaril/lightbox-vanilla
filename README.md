@@ -25,7 +25,7 @@ http://stackoverflow.com/a/28139063 re inline listeners
 				** ensure left and right arrow keys are listening! [done]
 		** ensure responsiveness [done]
 	* TESTING!!!!!!
-	* ERROR HANDLERS FOR FAIL IMG LOOKUP 
+	* ERROR HANDLERS FOR FAIL IMG LOOKUP [done]
 	* mobile headers on html [done]
 	* need to finish paging and querying [done]
 		>> need to work on lightbox modal [done]

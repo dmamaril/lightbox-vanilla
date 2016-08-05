@@ -82,7 +82,7 @@
 
         el      = event.target;
         src     = el.getAttribute('lb-src');
-        index   = el.getAttribute('lb-index');
+        index   = Number(el.getAttribute('lb-index')); // lb-index comes back as a string;
 
         modal   = _.getElement('#modal');
         img     = _.getElement('#lb-image');
@@ -90,8 +90,13 @@
         img.setAttribute('src', src);
         modal.setAttribute('style', 'display:block');
 
+
+        // onclick of first or last, arrows should be hidden;
+        toggleNavArrows(index);
+
+
         state.modal_visible = true;
-        state.modal_index   = Number(index);
+        state.modal_index   = index;
     };
 
     /**
@@ -191,6 +196,9 @@
             controller.load();
         }
 
+        // hide / display based on new index;
+        toggleNavArrows(next_index);
+
         state.modal_index = next_index;
         modal_image.setAttribute('src', image_src);
     };
@@ -200,9 +208,15 @@
      * @return {[type]} [description]
      */
     function resetState() {
+
         state.rate_limited      = false;
+
         state.load_visible      = false;
         state.modal_visible     = false;
+
+        state.next_nav_visible  = true;
+        state.prev_nav_visible  = true;    
+
         state.previous_query    = null;
         state.image_batch       = 0;
         state.num_images        = 0;
@@ -269,15 +283,15 @@
         wrapper.setAttribute('class', 'thumbnail-image');
 
         // main fn;
-        gapi.getData(query, state.image_batch, onGetResponse);
+        gapi.getData(query, state.image_batch, appendImages);
 
         /**
-         * [onGetResponse description]
+         * [appendImages description]
          * @param  {[type]} err    [description]
          * @param  {[type]} images [description]
          * @return {[type]}        [description]
          */
-        function onGetResponse(err, images) {
+        function appendImages(err, images) {
 
             if (err) {
                 var status_code = _.get(err, 'statusCode');
@@ -327,6 +341,7 @@
 
             // refuse to load more if already rate limited;
             } else if (state.load_visible && state.rate_limited) {
+
                 toggleLoadButtonDisplay('none');
             }
         }
@@ -376,6 +391,53 @@
         } else {
 
             msg_subtitle.innerHTML = 'Something\'s gone horribly wrong.';
+        }
+    }
+
+    /**
+     * [toggleNavArrows description]
+     *
+     *  >> hide or display nav arrows based on index;
+     * 
+     * @param  {Integer} index Next/Prev Image Index / On click index;
+     * @return {undefined}
+     */
+    function toggleNavArrows (index) {
+
+        if (index === 0) {
+
+            state.prev_nav_visible = false;
+            toggleNavDisplay('#modal-nav-prev', 'none');
+        }
+
+        else if (index === state.num_images - 1) {
+
+            state.next_nav_visible = false;
+            toggleNavDisplay('#modal-nav-next', 'none');
+        }
+
+        else if (!state.prev_nav_visible) {
+
+            state.prev_nav_visible = true;
+            toggleNavDisplay('#modal-nav-prev', 'block');
+        }
+
+        else if (!state.next_nav_visible) {
+
+            state.next_nav_visible = true;
+            toggleNavDisplay('#modal-nav-next', 'block');
+        }
+
+        /**
+         * [toggleNavDisplay description]
+         * @param  {[type]} selector [description]
+         * @param  {[type]} value    [description]
+         * @return {[type]}          [description]
+         */
+        function toggleNavDisplay(selector, value) {
+
+            var el = _.getElement(selector);
+            el.setAttribute('style', 'display: ' + value);
         }
     }
 
