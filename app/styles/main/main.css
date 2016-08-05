@@ -141,13 +141,15 @@ input:focus {
 }
 
 #modal {
-    height: calc(100% - 75px);
-    width: 100%;
-    position: fixed;
-    top: 75px;
-    z-index: 1;
 
-    display: none;
+    width: 100%;
+    height: calc(100% - 75px); /* adjust for header height */
+
+    top: 75px;
+    position: fixed;
+
+    z-index: 1;
+    display: none; /* will be toggled */
 }
 
 #modal img {
@@ -156,8 +158,10 @@ input:focus {
 }
 
 #modal-layer {
+
     background-color: rgb(48, 48, 49);
     opacity: 0.8;
+
     height: 100%;
     width: 100%;
 }
@@ -169,33 +173,46 @@ input:focus {
 }
 
 #close-modal {
-    position: absolute;
-    right: 25px;
-    top: 25px;
+
     font-size: 30px;
+
+    top: 25px;
+    right: 25px;
+    position: absolute;
 }
 
 #modal-navs {
-    position: absolute;
-    top: 0;
     height: 100%;
     width: 100%;
+
+    top: 0;
+    position: absolute;
 }
 
 .modal-nav {
+
+    height: 100%;
+    width: 50%;
+
     font-size: 60px;
-    margin: 0 25px;
+    padding: 0 25px;
+}
 
-    position: relative;
+.modal-nav span {
     top: 50%;
+    position: relative;
 }
 
-.float-left {
-    float: left;
+.pull-left {
+    left: 0;
+    text-align: left;
+    position: absolute;
 }
 
-.float-right {
-    float: right;
+.pull-right {
+    right: 0;
+    text-align: right;
+    position: absolute;
 }
 
 #error {
