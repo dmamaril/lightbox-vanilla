@@ -87,6 +87,11 @@
         modal   = _.getElement('#modal');
         img     = _.getElement('#lb-image');
 
+        // clicked on gallery body and not on a thumbnail;
+        if (_.isNull(src)) {
+            return;
+        }
+
         img.setAttribute('src', src);
         modal.setAttribute('style', 'display:block');
 
