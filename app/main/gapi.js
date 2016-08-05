@@ -136,12 +136,7 @@
             }
 
             results = _.reduce(results, function (mem, res) {
-                // validate it was a 200 for concatenating res.body.items;
-                if (res.statusCode !== 200) {
-                    return mem;
-                }
-
-                var results = _.get(res, 'body.items', []);
+                var results = _.get(res, 'items', []);
                 return mem.concat(results);
             }, []);
 
