@@ -181,12 +181,18 @@ input:focus {
     position: absolute;
 }
 
+/* includes X button */ 
 #modal-navs {
+
     height: 100%;
     width: 100%;
 
     top: 0;
     position: absolute;
+
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
 }
 
 .modal-nav {
