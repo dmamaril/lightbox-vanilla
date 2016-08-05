@@ -240,7 +240,7 @@
      */
     function startSearch(query, image_batch) {
 
-        if (state.num_images >= 100) {
+        if (state.rate_limited) {
             return showError(400);
         }
 
@@ -378,7 +378,7 @@
         } else if (status_code === 400) {
 
             state.rate_limited = true;
-            msg_subtitle.innerHTML = 'We\'re all out of goodies';
+            msg_subtitle.innerHTML = 'Bad request.';
 
         } else {
 
